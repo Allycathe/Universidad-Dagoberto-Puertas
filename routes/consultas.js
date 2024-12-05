@@ -3,7 +3,6 @@ import sql from '../db/neon.js'
 
 export const consultasRouter = new Router();
 
-
 consultasRouter.get('/consultas/profesores-multiples-carreras', async (req,res)=>{
     try {
         const resultado = await sql('SELECT * FROM inscritos()');
@@ -21,7 +20,7 @@ consultasRouter.get('/consultas/inscritos-cierto-ramo', async (req,res)=>{
     }
 })
 consultasRouter.get('/consultas/inscritos-seccion-ramo', async (req,res)=>{
-    const { ramo, seccion } = req.query; // Parámetros esperados en la query string
+    const { ramo, seccion } = req.query;
     try {
         const resultado = await sql(`SELECT * FROM inscritos_ramos('${ramo}', ${seccion})`);
         res.status(200).json({ cantidad: resultado[0] });
