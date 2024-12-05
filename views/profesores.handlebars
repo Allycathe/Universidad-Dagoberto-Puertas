@@ -1,1 +1,24 @@
 <h1> Aqui deberia mostar todos los profesores</h1>
+<div class="table-responsive" id="no-more-tables">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id:</th>
+                <th>Nombre</th>
+                <th>Rut</th>
+                <th>Correo</th>
+            </tr>
+        </thead>
+        {{#each lista}}
+        <tbody>
+            <tr>
+                <td>{{this.id_profesor}}</td>
+                <td>{{this.nombre}}</td>
+                <td>{{this.rut}}</td>
+                <td>{{this.correo}}</td>
+                </td>
+            </tr>
+        </tbody>
+        {{/each}}
+    </table>
+</div>

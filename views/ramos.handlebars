@@ -1,1 +1,27 @@
-<h1> Aqui deberaia mostart todos los ramos</h1>
+<h1> Ramos</h1>
+<div class="table-responsive" id="no-more-tables">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Código ramo</th>
+                <th>Nombre</th>
+                <th>Creditos</th>
+                <th>Sección</th>
+                <th>Código</th>
+                
+            </tr>
+        </thead>
+        {{#each lista}}
+        <tbody>
+            <tr>
+                <td>{{this.codigo_edificio}}</td>
+                <td>{{this.direccion}}</td>
+                <td>{{this.direccion}}</td>
+                <td>{{this.direccion}}</td>
+                <td>{{this.direccion}}</td>
+                </td>
+            </tr>
+        </tbody>
+        {{/each}}
+    </table>
+</div>
