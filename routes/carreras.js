@@ -7,8 +7,14 @@ CarrerasRouter.get('/carrera', async (req, res) =>{
     const lista= await sql('select * from Carreras');
     res.render('carreras', {lista});
 });
-CarrerasRouter.delete('/carrera/eliminar/:id', async (req, res)=>{
-    await sql('')
+CarrerasRouter.post('/carrera/eliminar/:id', async (req, res)=>{
+    const id=req.params.id;
+    console.log(id)
+    await sql('call del_carrera($1)', [id])
+})
+CarrerasRouter.post('/carrera/editar', (req,res)=>{
+    const id=req.params.id;
+    sql('')
 })
 CarrerasRouter.post('/carrera/insertar', async (req, res)=>{
     const codigo=req.body.codigo;

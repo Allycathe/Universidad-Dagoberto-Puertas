@@ -8,12 +8,13 @@ prestamosRouter.get('/prestamos', async (req, res)=>{
     res.render('prestamos', {lista})
 });
 prestamosRouter.delete('/prestamos/eliminar/:id', async (req, res)=>{
-    const id= await sql('')
+    const id= req.params.id;
+    await sql`call del_prestamo(${id})`
+
 })
 prestamosRouter.post('/prestamos/insertar/', (req,res)=>{
     const id= req.body.id;
     const codigo=req.body.codigo;
-    const fecha1=req.body.fecha1;
-    const fecha2=req.body.fecha2;
-    sql('')
+    const duracion=req.body.duracion;
+    sql('call insPrestamos($1, $2, $3)', [codigo, id, duracion])
 })

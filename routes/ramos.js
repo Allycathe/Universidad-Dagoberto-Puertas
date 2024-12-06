@@ -12,9 +12,8 @@ ramosRouter.post('/ramos/insertar', (req,res)=>{
     const nombre=req.body.nombre;
     const creditos=req.body.creditos;
     const seccion=req.body.seccion;
-    const bloque=req.body.bloque;
     const codigoSala=req.body.codigoSala;
     const idProfesor=req.body.idProfesor;
     const idAyudante=req.body.idAyudante;
-    sql('')
+    sql('call insRamos($1,$2,$3,$4,$5,$6,$7)', [codigo, nombre, creditos, seccion, codigoSala, idProfesor, idAyudante])
 })

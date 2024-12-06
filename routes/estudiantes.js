@@ -13,12 +13,12 @@ estudiantesRouter.post('/estudiantes/insertar', async(req,res)=>{
     const rut=req.body.rut;
     const direccion=req.body.direccion;
     const numero=req.body.numero;
-    const ingreso=req.body.ingreso;
-    sql('')
+    const edad=req.body.edad;
+    sql('call insEstudiantes($1,$2,$3,$4,$5,$6)', [nombre, apellido, rut, numero, edad, direccion])
 })
-estudiantesRouter.delete('/estudiantes/eliminar/:id', async (req,res)=>{
+estudiantesRouter.post('/estudiantes/eliminar/:id', async (req,res)=>{
     const id= req.body.id;
-    sql('')
+    sql('call del_estudiante($1)', [id])
 })
 estudiantesRouter.post('/estudiantes/editar/:id', async (req, res)=>{
     const nombre=req.body.nombre;

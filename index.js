@@ -2,7 +2,7 @@ import express from 'express';
 import { Router } from 'express';
 import { engine } from 'express-handlebars';
 import handlebars from 'express-handlebars';
-import {loadEnv} from './middlewares/env.js'
+
 /*Rutas*/
 import { CarrerasRouter } from './routes/carreras.js';
 import { consultasRouter } from './routes/consultas.js';
@@ -12,6 +12,7 @@ import { prestamosRouter } from './routes/prestamos.js';
 import { profesoresRouter } from './routes/profesores.js';
 import { ramosRouter } from './routes/ramos.js';
 import { recursosRouter } from './routes/recursos.js';
+
 /*Configuración express y handlebars*/ 
 const app = express();
 app.use(express.json());
@@ -27,8 +28,6 @@ app.engine(
   );
 app.set('view engine', 'handlebars');
 app.set('views', './views');
-
-app.use(loadEnv);
 
 app.get('/', (req,res)=>{
   res.render('inicio');

@@ -1,0 +1,61 @@
+<div class="table-responsive" id="no-more-tables">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id estudiante</th>
+                <th>Código recurso</th>
+                <th>fecha inicial</th>
+                <th>fecha entrega</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each lista}}
+            <tr>
+                <td>{{this.id_estudiante}}</td>
+                <td>{{this.codigo_recurso}}</td>
+                <td>{{this.fecha_inicial}}</td>
+                <td>{{this.fecha_entrega}}</td>
+                <td>
+                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modificarPrestamoModal" 
+                        data-id="{{this.codigo_carrera}}" data-nombre="{{this.nombre}}" data-duracion="{{this.duracion}}">
+                        Modificar
+                    </button>
+                    <form action="/carrera/eliminar/{{this.codigo_carrera}}" method="post">
+                    <button type="submit" class="btn btn-danger mt-2">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+<button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#crearPrestamoModal">Agregar prestamos</button>
+
+<div class="modal fade" id="crearPrestamoModal" tabindex="-1" aria-labelledby="crearPrestamoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="crearPrestamoModalLabel">Crear Préstamo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="/prestamos/insertar">
+                    <div class="form-group mb-3">
+                        <label for="id_estudiante">ID Estudiante:</label>
+                        <input type="number" class="form-control" id="id_estudiante" name="id_estudiante" min="1" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="codigo_recurso">Código Recurso:</label>
+                        <input type="text" class="form-control" id="codigo_recurso" name="codigo_recurso" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="duracion">Duración (en días):</label>
+                        <input type="number" class="form-control" id="duracion" name="duracion" min="1" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Crear Préstamo</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
