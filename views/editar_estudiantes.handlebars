@@ -1,0 +1,23 @@
+<div class="container mt-4">
+    <h3>Modificar Estudiante</h3>
+    <form method="POST" action="/estudiantes/editar/{{estudiante.id_estudiante}}">
+        <input type="hidden" id="idEstudiante" name="id">
+        <div class="form-group mb-3">
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control" id="nombreEstudiante" name="nombre" required>
+        </div>
+        <div class="form-group mb-3">
+            <label for="apellido">Apellido:</label>
+            <input type="text" class="form-control" id="apellidoEstudiante" name="apellido" required>
+        </div>
+        <div class="form-group mb-3">
+            <label for="edad">Edad:</label>
+            <input type="number" class="form-control" id="edadEstudiante" name="edad" required>
+        </div>
+        <div class="form-group mb-3">
+            <label for="numero">Número:</label>
+            <input type="text" class="form-control" id="numeroEstudiante" name="numero" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Modificar</button>
+    </form>
+</div>

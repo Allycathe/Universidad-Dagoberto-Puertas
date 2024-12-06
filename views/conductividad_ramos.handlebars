@@ -1,0 +1,75 @@
+<h1> CONDUCTIVIDAD RAMOS </h1>
+<div class="table-responsive" id="no-more-tables">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Código ramo conducente</th>
+                <th>Código ramo subsecuente</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each lista}}
+            <tr>
+                <td>{{this.ramo_conducente}}</td>
+                <td>{{this.ramo_subsecuente}}</td>
+                <td>
+                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modificarPrestamoModal" 
+                        data-codigo-ramo-conducente="{{this.ramo_conducente}}" data-codigo-ramo-subsecuente="{{this.ramo_subsecuente}}">
+                        Modificar
+                    </button>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+<button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#crearConductividadModal">Agregar malla</button>
+<button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#eliminarConductividadModal">eliminar malla</button>
+
+<div class="modal fade" id="crearConductividadModal" tabindex="-1" aria-labelledby="crearConductividadModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="crearPrestamoModalLabel">Crear Malla</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="/conductividad/insertar">
+                    <div class="form-group mb-3">
+                        <label for="ramo_conducente">Código ramo conducente:</label>
+                        <input type="text" class="form-control" id="ramo_conducente" name="ramo_conducente"  required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="ramo_subsecuente">Código ramo:</label>
+                        <input type="text" class="form-control" id="ramo_subsecuente" name="ramo_subsecuente" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Crear conductividad</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="eliminarConductividadModal" tabindex="-1" aria-labelledby="eliminarConductividadModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="crearPrestamoModalLabel">Crear conductividad</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="/conductividad/eliminar">
+                    <div class="form-group mb-3">
+                        <label for="ramo_conducente">Código ramo conducente:</label>
+                        <input type="text" class="form-control" id="ramo_conducente" name="ramo_conducente"  required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="ramo_subsecuente">Código ramo:</label>
+                        <input type="text" class="form-control" id="ramo_subsecuente" name="ramo_subsecuente" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">eliminar conductividad</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

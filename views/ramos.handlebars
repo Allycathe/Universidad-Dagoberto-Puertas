@@ -1,4 +1,4 @@
-<h1> Ramos</h1>
+<h1>Ramos</h1>
 <div class="table-responsive" id="no-more-tables">
     <table class="table">
         <thead>
@@ -8,17 +8,19 @@
                 <th>Creditos</th>
                 <th>Sección</th>
                 <th>Código</th>
-                
+                <th>id ayudante</th>
+                <th>id profesor</th> 
             </tr>
         </thead>
         {{#each lista}}
         <tbody>
             <tr>
-                <td>{{this.codigo_edificio}}</td>
-                <td>{{this.direccion}}</td>
-                <td>{{this.direccion}}</td>
-                <td>{{this.direccion}}</td>
-                <td>{{this.direccion}}</td>
+                <td>{{this.codigo_ramo}}</td>
+                <td>{{this.nombre}}</td>
+                <td>{{this.creditos}}</td>
+                <td>{{this.codigo_sala}}</td>
+                <td>{{this.id_ayudante}}</td>
+                <td>{{this.id_profesor}}</td>
                 </td>
             </tr>
         </tbody>

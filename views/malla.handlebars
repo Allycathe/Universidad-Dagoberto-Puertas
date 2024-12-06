@@ -1,0 +1,75 @@
+<h1> MALLA </h1>
+<div class="table-responsive" id="no-more-tables">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Código carrera</th>
+                <th>Código ramo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each lista}}
+            <tr>
+                <td>{{this.codigo_carrera}}</td>
+                <td>{{this.codigo_ramo}}</td>
+                <td>
+                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modificarPrestamoModal" 
+                        data-codigo-carrera="{{this.codigo_carrera}}" data-codigo-ramo="{{this.codigo_ramo}}">
+                        Modificar
+                    </button>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+<button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#crearMallaModal">Agregar malla</button>
+<button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#eliminarMallaModal">eliminar malla</button>
+
+<div class="modal fade" id="crearMallaModal" tabindex="-1" aria-labelledby="crearMallaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="crearPrestamoModalLabel">Crear Malla</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="/malla/insertar">
+                    <div class="form-group mb-3">
+                        <label for="codigo_carrera">Código carrera:</label>
+                        <input type="text" class="form-control" id="codigo_carrera" name="id_estudiante"  required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="codigo_ramo">Código ramo:</label>
+                        <input type="text" class="form-control" id="codigo_recurso" name="codigo_recurso" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Crear malla</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="eliminarMallaModal" tabindex="-1" aria-labelledby="eliminarMallaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="crearPrestamoModalLabel">Crear Malla</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="/malla/eliminar">
+                    <div class="form-group mb-3">
+                        <label for="codigo_carrera">Código carrera:</label>
+                        <input type="text" class="form-control" id="codigo_carrera" name="id_estudiante" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="codigo_ramo">Código ramo:</label>
+                        <input type="text" class="form-control" id="codigo_recurso" name="codigo_recurso" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Crear malla</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

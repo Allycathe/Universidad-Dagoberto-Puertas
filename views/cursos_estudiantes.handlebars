@@ -1,0 +1,91 @@
+<h1> CURSOS-ESTUDIANTES </h1>
+<div class="table-responsive" id="no-more-tables">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>id estudiante</th>
+                <th>Código ramo</th>
+                <th>Semestre</th>
+                <th>Año</th>
+                <th>nota control 1</th>
+                <th>nota control 2</th>
+                <th>nota control 3</th>
+                <th>nota solemne 1</th>
+                <th>nota solemne 2</th>
+                <th>aprobado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each lista}}
+            <tr>
+                <td>{{this.id_estudiante}}</td>
+                <td>{{this.codigo_ramo}}</td>
+                <td>{{this.semestre}}</td>
+                <td>{{this.anho}}</td>
+                <td>{{this.nota_c1}}</td>
+                <td>{{this.nota_c2}}</td>
+                <td>{{this.nota_c3}}</td>
+                <td>{{this.nota_s1}}</td>
+                <td>{{this.nota_s2}}</td>
+                <td>{{this.aprueba}}</td>
+                <td>
+                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modificarPrestamoModal" 
+                        data-id-estudiante="{{this.id_estudiante}}" data-codigo-ramo-subsecuente="{{this.codigo_ramo}}">
+                        Modificar
+                    </button>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+<button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#crearCEModal">Agregar curso-estudiante</button>
+<button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#eliminarCEModal">eliminar curso-estudiante</button>
+
+<div class="modal fade" id="crearCEModal" tabindex="-1" aria-labelledby="crearCEModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="crearCELabel">Crear curso_estudiante</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="/curso_estudiante/insertar">
+                    <div class="form-group mb-3">
+                        <label for="id_estudiante">ID del estudiante:</label>
+                        <input type="text" class="form-control" id="id_estudiante" name="id_estudiante" min="1" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="codigo_ramo">Código ramo:</label>
+                        <input type="text" class="form-control" id="codigo_ramo" name="codigo_ramo" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Crear curso_estudiante</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="eliminarCEModal" tabindex="-1" aria-labelledby="eliminarCEModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="crearCELabel">Crear curso_estudiante</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="/curso_estudiante/eliminar">
+                    <div class="form-group mb-3">
+                        <label for="id_estudiante">ID del estudiante:</label>
+                        <input type="text" class="form-control" id="id_estudiante" name="id_estudiante" min="1" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="codigo_ramo">Código ramo:</label>
+                        <input type="text" class="form-control" id="codigo_ramo" name="codigo_ramo" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">eliminar curso_estudiante</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

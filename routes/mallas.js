@@ -8,7 +8,7 @@ mallaRouter.get('/malla', async (req, res)=>{
     res.render('malla', {lista})
 });
 
-mallaRouter.delete('/malla/eliminar/:id', async (req, res)=>{
+mallaRouter.delete('/malla/eliminar/', async (req, res)=>{
     const codigoram= req.body;
     const codigocar= req.body;
     await sql(`call del_malla(${codigocar},${codigoram})`)

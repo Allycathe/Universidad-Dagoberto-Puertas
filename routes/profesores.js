@@ -18,6 +18,7 @@ profesoresRouter.post('/profesores/editar/:id', async(req,res)=>{
     const nombre=req.body.nombre;
     const apellido=req.body.apellido;
     const numero=req.body.numero;
+    await sql('UPDATE profesores SET nombre = $1,apellido = $2,numero = $3 where id_profesor = $4', [nombre,apellido,numero,id])
 } )
 
 profesoresRouter.post('/profesores/insertar', async (req,res)=>{

@@ -17,3 +17,7 @@ ramosRouter.post('/ramos/insertar', (req,res)=>{
     const idAyudante=req.body.idAyudante;
     sql('call insRamos($1,$2,$3,$4,$5,$6,$7)', [codigo, nombre, creditos, seccion, codigoSala, idProfesor, idAyudante])
 })
+ramosRouter.delete('/ramos/eliminar/:id', async(req,res)=>{
+    const id= req.params.id;
+    await sql(`CALL del_ramo(${id})`)
+})
