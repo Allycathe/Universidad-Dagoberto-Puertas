@@ -22,6 +22,7 @@ estudiantesRouter.post('/estudiantes/eliminar/:id', async (req,res)=>{
      const id = req.params.id;
     console.log(id);
     await sql`call del_estudiante(${id})`
+    res.redirect('/estudiantes');
 })
 estudiantesRouter.get('/estudiantes/editar/:id', async (req,res)=>{
     const id=req.params.id;
